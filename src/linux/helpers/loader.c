@@ -306,7 +306,10 @@ frida_receive_chunk (int sockfd, void * buffer, size_t length, const FridaLibcAp
     struct msghdr msg;
     ssize_t n;
 
-    /* avoid inline initialization to prevent the compiler attempting to insert a call to  memset */
+    /* 
+     * Avoid inline initialization to prevent the compiler attempting to insert
+     * a call to  memset.
+     */
     msg.msg_name = NULL,
     msg.msg_namelen = 0,
     msg.msg_iov = &io,
@@ -337,7 +340,10 @@ frida_receive_fd (int sockfd, const FridaLibcApi * libc)
   FridaControlMessage control;
   struct msghdr msg;
 
-  /* avoid inline initialization to prevent the compiler attempting to insert a call to  memset */
+  /* 
+   * Avoid inline initialization to prevent the compiler attempting to insert
+   * a call to  memset.
+   */
   msg.msg_name = NULL,
   msg.msg_namelen = 0,
   msg.msg_iov = &io,
